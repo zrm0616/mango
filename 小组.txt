@@ -1,0 +1,24 @@
+1.有 n 个人（每个人有一个唯一的编号，用 1~n 之间的整数表示）在一个水龙头前排队准备接水，
+现在第 n 个人有特殊情况，经过协商，大家允许他插队到第 x 个位置。输出第 n 个人插队后的排队情况。 
+样例输入
+7
+7 2 3 4 5 6 1
+3
+样例输出
+7 2 1 3 4 5 6
+#include <iostream>
+using namespace std;
+int main()
+{
+	int n,x,a[102];
+	cin>>n;
+	for(int i=1;i<=n;i++)
+		cin>>a[i];
+	cin>>x;
+	for(int i=n;i>=x;i--)
+		a[i+1]=a[i];
+	a[x]=a[n+1];
+    for(int i=1;i<=n;i++)
+		cout<<a[i]<<" ";
+	return 0;
+}
